@@ -3,6 +3,16 @@
 
 ## Introduction
 
+It turns out that you can write SQL to retrieve and mutate information within a DataFrame. We wanted to make sure to provide you with at least a brief introduction to the topic on your last day of the course!
+
+## Objectives
+You will be able to:
+- Use the basic syntax for querying pandas DataFrames with SQL statements
+- Explain how Pandas can be used to work directly with .sql files
+- Reference the pandasql package documentation as needed
+
+## Pandas and SQL
+
 Consider the structure of a **_Pandas DataFrame_**.  
 
 <img src="images/df_example2.png" width="850">
@@ -13,14 +23,7 @@ Now, let's consider the structure of a table from a **_SQL database_**.
 
 <img src="images/sql_example2.png">
 
-You've probably noticed by now that they're essentially the same--a table of values, with each row having a unique index and each column having a unique name.  This allows us to quickly and easily access information when using SQL.  In this section, we'll learn how we can use SQL-style queries to query pandas DataFrames!
-
-## Objectives
-You will be able to:
-- Understand the basic syntax for querying pandas DataFrames with SQL statements
-- Understand and explain how Pandas can be used to work directly with .sql files
-- Reference the pandasql package documentation as needed
-
+You've probably noticed by now that they're essentially the same--a table of values, with each row having a unique index and each column having a unique name.  Even better, the Pandas team has implemented the ability to retrieve information from a DatFrame using SQL, allowing you to leverage SQL for working with data in a DataFrame.
 
 ## Using `.query()`
 
@@ -38,15 +41,16 @@ foo_df = bar_df.query("Col_1 > Col_2")
 # These two lines are equivalent!
 ```
 
-Note that if you want to use `and` and `or` statements with the `.query()` method, you'll need to use `"&"` and `"|"` instead.
+Note that if you want to use `AND` and `OR` statements with the `.query()` method, you'll need to use `"&"` and `"|"` instead.
 
 ```python
 foo_df = bar_df.query("Col_1 > Col_2 & Col_2 <= Col_3")
+
 ```
 
 ## Using SQL syntax with `pandasql`
 
-Since SQL is such a powerful, comfortable tool for Data Scientists, some people had the bright idea of creating a library that lets users query DataFrames using SQL-style syntax.  This library is called [pandasql](https://pypi.org/project/pandasql/).
+Since SQL is such a powerful tool for Data Scientists, some people had the bright idea of creating a library that lets users query DataFrames using SQL-style syntax.  This library is called [pandasql](https://pypi.org/project/pandasql/).
 
 We can install `pandasql` using the bash command `pip install pandasql`.
 
@@ -88,4 +92,4 @@ results = pysqldf(q)
 
 ## Summary
 
-These advanced methods for querying DataFrames can make your life a lot easier by simplifying the syntax and allowing us to make use of SQL--use them to save yourself time and give keep your SQL skills strong!
+These advanced methods for querying DataFrames can make your life a lot easier by simplifying the syntax and allowing us to make use of SQL. Use them to save yourself time and give keep your SQL skills strong!
